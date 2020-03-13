@@ -2,6 +2,8 @@
 
 ## 안드로이드 4대 컴포넌트에 대해 설명해보세요.
 
+    ## 참고 : https://xn--ex3bt1ov9l.kr/477
+
 
     안드로이드를 구성하는 구성요소로 Activity , Service , Content Provider , Broadcast Receiver 가 있습니다.
     Activity 는 UI 를 가지는 화면을 나타냅니다.

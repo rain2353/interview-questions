@@ -17,3 +17,26 @@
     이 경우 onStop, onResume 메소드 호출이 생략됩니다.
     따라서 onSaveInstanceState, onRestoreInstanceState 메소드를 이용하여 액티비티가 갑자기 죽을 것을 대비해서 상태를 저장하고 복원하기 위한 작업을 정의해줄 수 있습니다.
 
+Q. 앱을 사용하는 도중에 카카오톡 메세지가 온다면 사용하던 앱의 TopActivity의 생명주기는 어떤 상태가 되나?
+
+A. onPause()
+
+Q. 데이터를 불러오는 작업은 어디서 해야하나?
+
+A. 기본적으로 onCreate()
+
+추가적으로 볼 것 : When exactly are onSaveInstanceState() and onRestoreInstanceState() called?
+
+Q. 다른 액티비티가 상단에 올라오면 어떤 상태인가?
+
+A. 실행중이던 액티비티는 onPause() - onStop()
+
+Q. onRestart는 언제 호출 되나?
+
+A. (다른 액티비티에 깔려서) onStop 상태에 있다가 다시 돌아오면 호출
+
+Q. 화면이 회전하면?
+
+A. onPause() - onStop() - onDestroy() - onCreate() - onStart() - onResume().
+ 현재 액티비티를 destroy 하고 새로 생성하기 때문에,
+ 기존 데이터를 유지하기 위해서는 onSaveInstanceState()에서 Bundle에 데이터를 저장하도록 오버라이드해야한다.
